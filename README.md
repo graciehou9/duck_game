@@ -1,7 +1,7 @@
 # Duck Game
 > A shoot-em-up game built in Scratch, Love2D, and Godot
 
-![Gameplay Screenshot]([duck_game.png])
+![Gameplay Screenshot](duck_game.png)
 
 ---
 
