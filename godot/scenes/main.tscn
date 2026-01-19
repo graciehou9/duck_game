@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqwd13use1d8f"]
+
+[ext_resource type="Texture2D" uid="uid://cybvyvxhtc72h" path="res://assets/images/background/sky.png" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://d1yoyb0ebqc82" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c5ce7x7mloyym" path="res://scenes/grape.tscn" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://brf0mkp6o07br" path="res://assets/sounds/sound.mp3" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://bcrqr7wbft8a3" path="res://assets/images/hit.png" id="5_tbgi4"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -60.0
+offset_right = 1161.0
+offset_bottom = 657.0
+texture = ExtResource("1_jyhfs")
+
+[node name="player" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(560, 537)
+
+[node name="grape" parent="." groups=["enemies"] instance=ExtResource("2_0wfyh")]
+position = Vector2(239, 60)
+
+[node name="grape2" parent="." groups=["enemies"] instance=ExtResource("2_0wfyh")]
+position = Vector2(571, 61)
+
+[node name="grape3" parent="." groups=["enemies"] instance=ExtResource("2_0wfyh")]
+position = Vector2(910, 64)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sugp2")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
+[node name="Hit" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(32, 36)
+texture = ExtResource("5_tbgi4")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5ce7x7mloyym"]
+
+[ext_resource type="Script" uid="uid://cenrhgkkvqof4" path="res://scripts/grape.gd" id="1_0gvam"]
+[ext_resource type="Texture2D" uid="uid://bxkr5q5oahae3" path="res://assets/images/grape/grape.png" id="1_8daar"]
+[ext_resource type="AudioStream" uid="uid://d24kghswpiduh" path="res://assets/sounds/Squawk.wav" id="2_cukkh"]
+[ext_resource type="AudioStream" uid="uid://dcgiisq82pwyp" path="res://assets/sounds/chew.wav" id="4_ytvmp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gvam"]
+radius = 52.03845
+
+[node name="grape" type="Area2D"]
+script = ExtResource("1_0gvam")
+
+[node name="AnimatedSprite2D" type="Area2D" parent="."]
+visible = false
+position = Vector2(7.6293945e-06, -1.0000019)
+scale = Vector2(2.5, 2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5474735e-13, -1.9999999)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_0gvam")
+
+[node name="Grape" type="Sprite2D" parent="."]
+position = Vector2(41, -15)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8daar")
+
+[node name="Squawk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cukkh")
+
+[node name="Chew" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ytvmp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_body_entered"]

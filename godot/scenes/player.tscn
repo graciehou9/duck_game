@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1yoyb0ebqc82"]
+
+[ext_resource type="Texture2D" uid="uid://7i0npijrdss6" path="res://assets/images/player/player.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://c0b2x4ucrxpdm" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 64, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3pqv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_qhqgy"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 78.025635
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_i3pqv")
+frame_progress = 0.76344335
+script = SubResource("GDScript_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2els")
